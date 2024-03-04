@@ -9,14 +9,26 @@
 <body>
 
   <!-- Conteúdo da janela pop-up -->
-  <h2>Pop-up com Input</h2>
-  <label for="nome">Digite seu nome:</label>
-  <input type="text" id="nome" placeholder="Seu nome">
-  <br>
-  <button id="getNameButton">Obter Nome</button>
+  <h2>Adicione seus produtos aqui:</h2>
+  <form action="dados-produto" class="dados-produto">
+    <label for="nome-produto">Nome do produto:</label>
+    <input type="text" name="nome-produto" id="nome-produto" class="campo">
+    
+    <br>
+    <label for="qtd-estoque">Qtd de produtos:</label>
+    <input type="number" name="qtd-estoque" id="qtd-estoque" class="campo">
+    
+    <br>
+    <label for="valor">Valor do produto:</label>
+    <input type="number" name="valor" id="valor" class="campo">  
+
+</form>
+  
+  <button id="btn-add">Obter Nome</button>
   <button id="closeButton">Fechar</button>
 
   <!-- Script para manipulação do pop-up -->
+  <script src="popup-functions.js"></script>
   <script src="popup-script.js"></script>
 </body>
 </html>

@@ -4,40 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exemplo de Pop-up com Input</title>
-  <style>
-    /* Estilos para a janela pop-up */
-    #popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1000;
-    }
-
-    /* Estilos para o fundo de sobreposição */
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1 class="titulo-principal">Nosso estoque</h1>
 
   <!-- Botão para abrir a janela pop-up -->
-  <button id="openButton">Abrir Pop-up</button>
+  <button id="openButton">Adicionar produto</button>
 
   <!-- Janela pop-up -->
   <div id="overlay"></div>
   <div id="popup"></div>
 
+  <table class="tabela-produtos">
+    <tr class="titulos-tabela">
+      <td>Nome do produto</td>
+      <td>ID do produto</td>
+      <td>Qtd. em estoque</td>
+      <td>Fardos em estoque</td>
+      <td>Valor do produto</td>
+      <td>VT. deste produto em estoque</td>
+    </tr>
+    <tbody>
+      
+    </tbody>
+  </table>
+
   <!-- Script para manipulação do pop-up -->
-  <script src="popup-script.js"></script>
+  <script type="module" src="popup-script.js"></script>
 </body>
 </html>
+ 
