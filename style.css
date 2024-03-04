@@ -10,9 +10,16 @@
     justify-content: center;
 }
 
-.btn-add-produto{
-    text-align: center;
-}
+button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
 
 .tabela-produtos{
     border-collapse: collapse;

@@ -4,13 +4,12 @@ class CriarProduto {
     
     constructor() {
         this.formulario = document.querySelector('.dados-produto');
-        this.id = 1;
         this.eventos();
+        this.id = 0;
     }
 
     criaId() {
-        let id = 0;
-        return id++
+        return this.id = this.id + 1
     }
 
     eventos() {
@@ -49,7 +48,7 @@ class CriarProduto {
         const column1 = document.createElement('td');
         column1.textContent = nomeProduto;
         const column2 = document.createElement('td');
-        column2.textContent = this.id;
+        column2.textContent = this.criaId();
         const column3 = document.createElement('td');
         column3.textContent = qtdEstoque;
         const column4 = document.createElement('td');
@@ -67,7 +66,6 @@ class CriarProduto {
         novaLinha.appendChild(column6);
         tabela.querySelector('tbody').appendChild(novaLinha);
 
-        this.id++;
         alert('Produto adicionado com sucesso!');
     }
 
@@ -78,15 +76,4 @@ class CriarProduto {
     }
 
 }
-
-export default CriarProduto;
-
-// Função para fechar o pop-up
-function fecharPopup() {
-    // Oculta a janela pop-up e o fundo de sobreposição
-    document.getElementById("popup").style.display = "none";
-    document.getElementById("overlay").style.display = "none";
-}
-
-export { fecharPopup }; // Exporta a função fecharPopup separadamente
   
