@@ -66,7 +66,7 @@ class CriarProduto {
         novaLinha.appendChild(column5);
         novaLinha.appendChild(column6);
         tabela.querySelector('tbody').appendChild(novaLinha);
-        console.log(novaLinha.id);
+        
 
         alert('Produto adicionado com sucesso!');
     }
@@ -80,3 +80,18 @@ class CriarProduto {
 }
 
 const novoProduto = new CriarProduto();
+
+const btnRemover = document.querySelector('.remove-produto');
+btnRemover.addEventListener('click', () => {
+    const idLinhaRemover = document.querySelector('#remove').value;
+
+    // Verifica se a linha foi encontrada
+    const linhaRemover = document.getElementById(idLinhaRemover);
+    
+    if (linhaRemover) {
+        linhaRemover.remove();
+        console.log('Linha removida com sucesso!');
+    } else {
+        console.log('A linha não foi encontrada. Verifique o ID.');
+    }
+});
