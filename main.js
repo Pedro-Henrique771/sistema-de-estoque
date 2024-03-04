@@ -3,9 +3,11 @@ class CriarProduto {
     constructor() {
         this.formulario = document.querySelector('.dados-produto');
         this.eventos();
-        this.id = 0
+        this.id = 0;
+        this.cont = 0;
     }
-
+//0 1 2 3 4 5 6 7 8 9 10
+// - p
     criaId() {
         return this.id = this.id + 1
     }
@@ -43,25 +45,28 @@ class CriarProduto {
         const novaLinha = document.createElement('tr');
         
         const column1 = document.createElement('td');
-        column1.textContent = nomeProduto;
         const column2 = document.createElement('td');
-        column2.textContent = this.criaId();
         const column3 = document.createElement('td');
-        column3.textContent = qtdEstoque;
         const column4 = document.createElement('td');
-        column4.textContent = qtdEstoque / 20;
         const column5 = document.createElement('td');
-        column5.textContent = `R$ ${valorProduto}`;
         const column6 = document.createElement('td');
+        
+        column1.textContent = nomeProduto;
+        column2.textContent = this.criaId();
+        column3.textContent = qtdEstoque;
+        column4.textContent = qtdEstoque / 20;
+        column5.textContent = `R$ ${valorProduto}`;
         column6.textContent = `R$ ${qtdEstoque * valorProduto}`;
         
         novaLinha.appendChild(column1);
         novaLinha.appendChild(column2);
+        novaLinha.id = column2.textContent;
         novaLinha.appendChild(column3);
         novaLinha.appendChild(column4);
         novaLinha.appendChild(column5);
         novaLinha.appendChild(column6);
         tabela.querySelector('tbody').appendChild(novaLinha);
+        console.log(novaLinha.id);
 
         alert('Produto adicionado com sucesso!');
     }
