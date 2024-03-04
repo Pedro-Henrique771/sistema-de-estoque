@@ -1,11 +1,9 @@
-// popup-functions.js
-
 class CriarProduto {
     
     constructor() {
         this.formulario = document.querySelector('.dados-produto');
         this.eventos();
-        this.id = 0;
+        this.id = 0
     }
 
     criaId() {
@@ -13,33 +11,32 @@ class CriarProduto {
     }
 
     eventos() {
-        //const btnAdicionar = document.querySelector('.btn-add');
-        if (this.validarCampos()) {
+        const btnAdicionar = document.querySelector('.btn-add');
+        btnAdicionar.addEventListener('click', () => {
+            if(this.validarCampos()) {
                 this.adicionarProdutos();
                 this.despreencherCampos();
-                fecharPopup(); // Chamada para fechar o PopUp após adicionar produtos
             }
-        
+        })
     }
 
     validarCampos() {
         let valid = true;
-        for (let campo of this.formulario.querySelectorAll('.campo')) {
+        for(let campo of this.formulario.querySelectorAll('.campo')) {
             const label = campo.previousElementSibling.innerText;
 
-            if (!campo.value && label !== 'Qtd de produtos:') {
-                alert(`O campo ${label} não pode ficar vazio.`);
+            if(!campo.value && label !== 'Qtd de produtos:') {
+                alert(`O campo ${label} não pode ficar vazio.`)
                 valid = false;
-            }
-        }
-        return valid;
+            };
+        };
+        return valid
     }
 
-    adicionarProdutos() {
-        
 
+    adicionarProdutos() {
         const tabela = document.querySelector('.tabela-produtos');
-        const nomeProduto = document.querySelector('#nome-produto').value;
+        const nomeProduto = document.querySelector('#nome-produto').value ;
         const qtdEstoque = document.querySelector('#qtd-estoque').value || 0;
         const valorProduto = document.querySelector('#valor').value;
 
@@ -76,4 +73,5 @@ class CriarProduto {
     }
 
 }
-  
+
+const novoProduto = new CriarProduto();

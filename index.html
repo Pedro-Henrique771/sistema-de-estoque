@@ -1,37 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo de Pop-up com Input</title>
+  <title>Setor do estoque</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="titulo-principal">Nosso estoque</h1>
+  <h1 class="titulo-principal">Nosso estoque</h1>
 
-  <!-- Botão para abrir a janela pop-up -->
-  <button id="openButton">Adicionar produto</button>
-
-  <!-- Janela pop-up -->
-  <div id="overlay"></div>
-  <div id="popup"></div>
-
-  <table class="tabela-produtos">
-    <tr class="titulos-tabela">
-      <td>Nome do produto</td>
-      <td>ID do produto</td>
-      <td>Qtd. em estoque</td>
-      <td>Fardos em estoque</td>
-      <td>Valor do produto</td>
-      <td>VT. deste produto em estoque</td>
-    </tr>
-    <tbody>
+  <form action="dados-produto" class="dados-produto">
+      <label for="nome-produto">Nome do produto:</label>
+      <input type="text" name="nome-produto" id="nome-produto" class="campo">
       
-    </tbody>
-  </table>
+      <label for="qtd-estoque">Qtd de produtos:</label>
+      <input type="number" name="qtd-estoque" id="qtd-estoque" class="campo">
 
-  <!-- Script para manipulação do pop-up -->
-  <script type="module" src="popup-script.js"></script>
+      <label for="valor">Valor do produto:</label>
+      <input type="number" name="valor" id="valor" class="campo">  
+
+  </form>
+
+  <button class="btn-add">Adicionar Produto</button>
+
+<table class="tabela-produtos">
+  <tr class="titulos-tabela">
+    <td>Nome do produto</td>
+    <td>ID do produto</td>
+    <td>Qtd. em estoque</td>
+    <td>Fardos em estoque</td>
+    <td>Valor do produto</td>
+    <td>VT. deste produto em estoque</td>
+  </tr>
+  <tbody>
+    
+  </tbody>
+</table>
+
+<script src="./main.js"></script>
 </body>
 </html>
- 
+
