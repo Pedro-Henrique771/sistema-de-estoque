@@ -15,11 +15,24 @@ class CriarProduto {
     eventos() {
         const btnAdicionar = document.querySelector('.btn-add');
         btnAdicionar.addEventListener('click', () => {
-            if(this.validarCampos()) {
+            if(this.validarCampos() && this.validarCamposNumericos()) {
                 this.adicionarProdutos();
                 this.despreencherCampos();
             }
         })
+    }
+
+    validarCamposNumericos() {
+        let valid = true;
+        for(let campo of this.formulario.querySelectorAll('.campo')) {
+            const label = campo.previousElementSibling.innerText;
+
+            if(label === 'Qtd de produtos:' && campo.value < 0 || label === 'Valor do produto:' && campo.value < 0) { 
+                alert(`O campo ${label} não pode ser menor que 0.`)
+                valid = false;
+            };
+        };
+        return valid;
     }
 
     validarCampos() {
@@ -87,6 +100,7 @@ class CriarProduto {
     };
 
     editarProduto() {
+        if(this.validarCamposNumericos()){
         const btnEditProduto = document.querySelector('.editar-produto');
         btnEditProduto.addEventListener('click', () => {
 
@@ -111,12 +125,14 @@ class CriarProduto {
                 column4Alterar.textContent = qtdEstoqueAlterado / 20;
                 column5Alterar.textContent = `R$ ${valorAlterado}`;
                 column6Alterar.textContent = `R$ ${valorAlterado * qtdEstoqueAlterado}`;
+                this.despreencherCampos();
             } else {
                 alert('A linha não foi encontrada. Verifique o ID.');
             }
-            this.despreencherCampos();
+            
         });
         };
+    };
     };
 
 
