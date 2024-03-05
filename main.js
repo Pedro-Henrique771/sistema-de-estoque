@@ -80,22 +80,41 @@ class CriarProduto {
         document.querySelector('#nome-produto').value = '';
         document.querySelector('#qtd-estoque').value = '';
         document.querySelector('#valor').value = '';
+        document.querySelector('#nome-produto-alterado').value = '';
+        document.querySelector('#qtd-estoque-alterado').value = '';
+        document.querySelector('#valor-alterado').value = '';
+        document.querySelector('#edit').value = '';
     };
 
     editarProduto() {
         const btnEditProduto = document.querySelector('.editar-produto');
         btnEditProduto.addEventListener('click', () => {
+
             const idAlterarEssaLinha = document.querySelector('#edit').value;
             const alterarEssaLinha = document.getElementById(idAlterarEssaLinha);
+
             if (alterarEssaLinha) {
                 // Recupera os valores atuais da linha
-                const nomeAtual = alterarEssaLinha.querySelector('td:nth-child(1)').textContent;
+                const column1Alterar = alterarEssaLinha.querySelector('td:nth-child(1)');
+                const column3Alterar = alterarEssaLinha.querySelector('td:nth-child(3)');
+                const column4Alterar = alterarEssaLinha.querySelector('td:nth-child(4)');
+                const column5Alterar = alterarEssaLinha.querySelector('td:nth-child(5)');
+                const column6Alterar = alterarEssaLinha.querySelector('td:nth-child(6)');
+
+                const nomeAlterado = document.querySelector('#nome-produto-alterado').value || column1Alterar.textContent;
+                const qtdEstoqueAlterado = document.querySelector('#qtd-estoque-alterado').value || column3Alterar.textContent;
+                const valorAlterado = document.querySelector('#valor-alterado').value || column5Alterar.textContent; 
     
                 // Preenche os campos de edição
-                console.log(nomeAtual);
+                column1Alterar.textContent = nomeAlterado;
+                column3Alterar.textContent = qtdEstoqueAlterado;
+                column4Alterar.textContent = qtdEstoqueAlterado / 20;
+                column5Alterar.textContent = `R$ ${valorAlterado}`;
+                column6Alterar.textContent = `R$ ${valorAlterado * qtdEstoqueAlterado}`;
             } else {
                 alert('A linha não foi encontrada. Verifique o ID.');
             }
+            this.despreencherCampos();
         });
         };
     };

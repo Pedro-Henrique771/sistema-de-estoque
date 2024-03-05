@@ -6,13 +6,37 @@
 
 .container{
     display: flex;
-    align-items: center;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
 }
 
-.btn-add-produto{
-    text-align: center;
+.dados-iniciais{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 300px;
+    align-items: flex-end;
 }
+
+.remover-produto{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: flex-end;
+}
+
+.dados-alterados{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: flex-end;
+}
+
+
 
 .tabela-produtos{
     border-collapse: collapse;
