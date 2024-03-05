@@ -3,12 +3,13 @@ class CriarProduto {
     constructor() {
         this.formulario = document.querySelector('.dados-produto');
         this.eventos(); // Todos eventos que acontecem dps do clique no botão de adicionar eventos.
+        this.editarProduto();
         this.id = 0;    
         this.cont = 0;
     }
 
     criaId() { 
-        return this.id = this.id + 1
+        return this.id = this.id + 1;
     }
 
     eventos() {
@@ -32,7 +33,7 @@ class CriarProduto {
             };
         };
         return valid;
-    }
+    };
 
 
     adicionarProdutos() {
@@ -73,15 +74,32 @@ class CriarProduto {
         
 
         alert('Produto adicionado com sucesso!');
-    }
+    };
 
     despreencherCampos() {
         document.querySelector('#nome-produto').value = '';
         document.querySelector('#qtd-estoque').value = '';
         document.querySelector('#valor').value = '';
-    }
+    };
 
-}
+    editarProduto() {
+        const btnEditProduto = document.querySelector('.editar-produto');
+        btnEditProduto.addEventListener('click', () => {
+            const idAlterarEssaLinha = document.querySelector('#edit').value;
+            const alterarEssaLinha = document.getElementById(idAlterarEssaLinha);
+            if (alterarEssaLinha) {
+                // Recupera os valores atuais da linha
+                const nomeAtual = alterarEssaLinha.querySelector('td:nth-child(1)').textContent;
+    
+                // Preenche os campos de edição
+                console.log(nomeAtual);
+            } else {
+                alert('A linha não foi encontrada. Verifique o ID.');
+            }
+        });
+        };
+    };
+
 
 const novoProduto = new CriarProduto();
 
