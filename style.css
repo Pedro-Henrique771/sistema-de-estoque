@@ -1,3 +1,7 @@
+body{
+    background-color: #fdf2b1;
+}
+
 .titulo-principal{
     font-size: 4em;
     font-family: Arial, Helvetica, sans-serif;
@@ -19,24 +23,77 @@
     flex-wrap: wrap;
     align-items: center;
     width: 300px;
-    align-items: flex-end;
+    align-items: center;
+    gap: 12px;
+    border-right: 1px solid black;
+    height: 220px;
+}
+
+.btn-add{
+    padding: 8px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-add:hover{
+    background-color: #45a049;
+}
+
+.label-input{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
 }
 
 .remover-produto{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     width: 300px;
-    align-items: flex-end;
+    align-items: center;
+    height: 220px;
+}
+
+.btn-remove{
+    padding: 8px;
+    background-color: #FF5757;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-remove:hover{
+    background-color: #FF3333;
 }
 
 .dados-alterados{
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 300px;
-    align-items: flex-end;
+    align-items: center;
+    gap: 7px;   
+    border-left: 1px solid black;
+    height: 220px;
 }
 
+.btn-edita{
+    padding: 8px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
 
+.btn-edita:hover{
+    background-color: #2980b9;
+}
 
 .tabela-produtos{
     border-collapse: collapse;
