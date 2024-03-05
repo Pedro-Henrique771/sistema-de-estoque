@@ -2,13 +2,12 @@ class CriarProduto {
     
     constructor() {
         this.formulario = document.querySelector('.dados-produto');
-        this.eventos();
-        this.id = 0;
+        this.eventos(); // Todos eventos que acontecem dps do clique no botão de adicionar eventos.
+        this.id = 0;    
         this.cont = 0;
     }
-//0 1 2 3 4 5 6 7 8 9 10
-// - p
-    criaId() {
+
+    criaId() { 
         return this.id = this.id + 1
     }
 
@@ -27,12 +26,12 @@ class CriarProduto {
         for(let campo of this.formulario.querySelectorAll('.campo')) {
             const label = campo.previousElementSibling.innerText;
 
-            if(!campo.value && label !== 'Qtd de produtos:') {
+            if(!campo.value && label !== 'Qtd de produtos:') { 
                 alert(`O campo ${label} não pode ficar vazio.`)
                 valid = false;
             };
         };
-        return valid
+        return valid;
     }
 
 
@@ -42,8 +41,11 @@ class CriarProduto {
         const qtdEstoque = document.querySelector('#qtd-estoque').value || 0;
         const valorProduto = document.querySelector('#valor').value;
 
+        //Criando elemento pai.
         const novaLinha = document.createElement('tr');
         
+
+        //Criando todos elementos filhos.
         const column1 = document.createElement('td');
         const column2 = document.createElement('td');
         const column3 = document.createElement('td');
@@ -51,6 +53,7 @@ class CriarProduto {
         const column5 = document.createElement('td');
         const column6 = document.createElement('td');
         
+        //Adicionando o conteúdo aos filhos.
         column1.textContent = nomeProduto;
         column2.textContent = this.criaId();
         column3.textContent = qtdEstoque;
@@ -58,6 +61,7 @@ class CriarProduto {
         column5.textContent = `R$ ${valorProduto}`;
         column6.textContent = `R$ ${qtdEstoque * valorProduto}`;
         
+        //Adicionando os filhos ao pai.
         novaLinha.appendChild(column1);
         novaLinha.appendChild(column2);
         novaLinha.id = column2.textContent;
@@ -81,6 +85,7 @@ class CriarProduto {
 
 const novoProduto = new CriarProduto();
 
+// Função que remove produto da tabela.
 const btnRemover = document.querySelector('.remove-produto');
 btnRemover.addEventListener('click', () => {
     const idLinhaRemover = document.querySelector('#remove').value;
@@ -90,8 +95,8 @@ btnRemover.addEventListener('click', () => {
     
     if (linhaRemover) {
         linhaRemover.remove();
-        console.log('Linha removida com sucesso!');
+        alert('Linha removida com sucesso!');
     } else {
-        console.log('A linha não foi encontrada. Verifique o ID.');
-    }
+        alert('A linha não foi encontrada. Verifique o ID.');
+    };
 });

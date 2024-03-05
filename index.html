@@ -11,20 +11,36 @@
 
   <form action="dados-produto" class="dados-produto">
       <label for="nome-produto">Nome do produto:</label>
-      <input type="text" name="nome-produto" id="nome-produto" class="campo">
+      <input type="text" name="nome-produto" id="nome-produto" class="campo" placeholder="Ex: Morango">
       
       <label for="qtd-estoque">Qtd de produtos:</label>
-      <input type="number" name="qtd-estoque" id="qtd-estoque" class="campo">
+      <input type="number" name="qtd-estoque" id="qtd-estoque" class="campo" placeholder="Ex: 120">
 
       <label for="valor">Valor do produto:</label>
-      <input type="number" name="valor" id="valor" class="campo">  
+      <input type="number" name="valor" id="valor" class="campo" placeholder="Ex: 90">  
 
   </form>
 
   <button class="btn-add">Adicionar Produto</button>
   <br>
-  <input type="number" name="remove" id="remove">
+
+  <label for="remove">Id do produto:</label>
+  <input type="number" name="remove" id="remove" placeholder="Id que deseja remover">
   <button class="remove-produto">Remover produto</button>
+  <br>
+
+  <form action="pegar-dados-substitutos" class="dados-alterados">
+    <label for="id-edit">Id do produto</label>
+    <input type="number" name="id-edit" id="edita">
+    <label for="nome-produto-alterado">Nome do produto:</label>
+    <input type="text" name="nome-produto-alterado" id="nome-produto-alterado">
+    <label for="qtd-estoque-alterado">Qtd de produtos:</label>
+    <input type="number" name="qtd-estoque-alterado" id="qtd-estoque" class="campo" placeholder="Ex: 120">
+    <label for="valor-alterado">Valor do produto:</label>
+    <input type="number" name="valor" id="valor" class="campo" placeholder="Ex: 90">
+  </form>
+
+  <button class="editar-produto">Editar produto</button>
 
 <table class="tabela-produtos">
   <tr class="titulos-tabela">
