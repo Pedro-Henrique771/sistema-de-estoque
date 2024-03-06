@@ -2,6 +2,7 @@ class CriarProduto {
     
     constructor() {
         this.formulario = document.querySelector('.dados-produto');
+        this.segundoFormulario = document.querySelector('.dados-alterados')
         this.eventos(); // Todos eventos que acontecem dps do clique no botão de adicionar eventos.
         this.editarProduto();
         this.id = 0;    
@@ -24,7 +25,7 @@ class CriarProduto {
 
     validarCamposNumericos() {
         let valid = true;
-        for(let campo of this.formulario.querySelectorAll('.campo')) {
+        for(let campo of this.segundoFormulario.querySelectorAll('.campo')) {
             const label = campo.previousElementSibling.innerText;
 
             if(label === 'Qtd de produtos:' && campo.value < 0 || label === 'Valor do produto:' && campo.value < 0) { 
@@ -100,7 +101,6 @@ class CriarProduto {
     };
 
     editarProduto() {
-        if(this.validarCamposNumericos()){
         const btnEditProduto = document.querySelector('.editar-produto');
         btnEditProduto.addEventListener('click', () => {
 
@@ -116,15 +116,16 @@ class CriarProduto {
                 const column6Alterar = alterarEssaLinha.querySelector('td:nth-child(6)');
 
                 const nomeAlterado = document.querySelector('#nome-produto-alterado').value || column1Alterar.textContent;
-                const qtdEstoqueAlterado = document.querySelector('#qtd-estoque-alterado').value || column3Alterar.textContent;
-                const valorAlterado = document.querySelector('#valor-alterado').value || column5Alterar.textContent; 
+                const qtdEstoqueAlterado = document.querySelector('#qtd-estoque-alterado').value || column3Alterar.textContent.replace(/[^\d.-]/g, '');
+                const valorAlterado = document.querySelector('#valor-alterado').value || column5Alterar.textContent.replace(/[^\d.-]/g, '');
     
                 // Preenche os campos de edição
                 column1Alterar.textContent = nomeAlterado;
                 column3Alterar.textContent = qtdEstoqueAlterado;
                 column4Alterar.textContent = qtdEstoqueAlterado / 20;
                 column5Alterar.textContent = `R$ ${valorAlterado}`;
-                column6Alterar.textContent = `R$ ${valorAlterado * qtdEstoqueAlterado}`;
+                column6Alterar.textContent = `R$ ${qtdEstoqueAlterado * valorAlterado}`;
+                console.log(qtdEstoqueAlterado, valorAlterado, typeof qtdEstoqueAlterado, typeof valorAlterado);
                 this.despreencherCampos();
             } else {
                 alert('A linha não foi encontrada. Verifique o ID.');
@@ -132,7 +133,6 @@ class CriarProduto {
             
         });
         };
-    };
     };
 
 
